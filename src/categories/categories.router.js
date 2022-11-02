@@ -6,6 +6,7 @@ const passport = require("passport");
 require("../middlewares/auth.middleware")(passport);
 const adminValidate = require("../middlewares/role.middleware");
 
+//? /api/v1/categories
 router
   .route("/")
   .get(categoriesServices.getAllCategories)
