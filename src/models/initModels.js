@@ -4,7 +4,7 @@ const Instructions = require("./instructions.models");
 const RecipesIngredients = require("./recipes_ingredients.models");
 const Recipes = require("./recipes.models");
 const Types = require("./types.models");
-const UserIngredients = require("./users_ingredients.models");
+const UsersIngredients = require("./users_ingredients.models");
 const UsersRecipes = require("./users_recipes.models");
 const Users = require("./users.models");
 
@@ -19,24 +19,24 @@ const initModels = () => {
   //? Users relations
   Users.hasMany(Recipes);
   Users.hasMany(UsersRecipes);
-  Users.hasMany(UserIngredients);
+  Users.hasMany(UsersIngredients);
 
   //? Ingredients Realtions
   Ingredients.belongsTo(Types);
   Ingredients.hasMany(RecipesIngredients);
-  Ingredients.hasMany(UserIngredients);
+  Ingredients.hasMany(UsersIngredients);
 
   //? RecipesIngredients relations
   RecipesIngredients.belongsTo(Recipes);
-  RecipesIngredients.hasMany(Ingredients);
+  RecipesIngredients.belongsTo(Ingredients);
 
   //? UsersIngredients relations
-  UserIngredients.belongsTo(Users);
-  UserIngredients.belongsTo(Ingredients);
+  UsersIngredients.belongsTo(Users);
+  UsersIngredients.belongsTo(Ingredients);
 
   //? UsersRecipes relations
   UsersRecipes.belongsTo(Recipes);
-  UsersRecipes.belongsTo(RecipesIngredients);
+  UsersRecipes.belongsTo(Users);
 
   //? Intructions relations
   Instructions.belongsTo(Recipes);

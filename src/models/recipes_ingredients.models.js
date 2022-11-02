@@ -14,10 +14,10 @@ const RecipesIngredients = db.define("recipes_ingredients", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  recipesId: {
+  recipeId: {
     type: DataTypes.UUID,
     allowNull: false,
-    field: "recipes_id",
+    field: "recipe_id",
     references: {
       key: "id",
       model: Recipes,

@@ -3,8 +3,8 @@ const userServices = require("./users.services");
 
 //? Protect routes
 const passport = require("passport");
-const adminValidate = require("../middlewares/role.middleware");
 require("../middlewares/auth.middleware")(passport);
+const adminValidate = require("../middlewares/role.middleware");
 
 //? Routes
 
