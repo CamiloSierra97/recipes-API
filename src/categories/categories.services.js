@@ -67,5 +67,6 @@ const deleteCategory = (req, res) => {
 module.exports = {
   getAllCategories,
   getCategoryById,
+  createCategory,
   deleteCategory,
 };
