@@ -12,7 +12,7 @@ const getAllIngredients = (req, res) => {
 };
 
 const getIngredientById = (req, res) => {
-  const id = req.params.id;
+  const id = req.params.ingredient_id;
   ingredientControllers
     .getIngredientById(id)
     .then((data) => {
@@ -23,7 +23,7 @@ const getIngredientById = (req, res) => {
       }
     })
     .catch((err) => {
-      res.status(400).json(400).json({ message: err.message });
+      res.status(400).json({ message: err.message });
     });
 };
 

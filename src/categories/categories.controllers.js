@@ -19,10 +19,10 @@ const getCategoryById = async (id) => {
 
 //? Create category
 const createCategory = async (name) => {
-  const data = await Categories.create({
+  const newCategory = await Categories.create({
     name,
   });
-  return data;
+  return newCategory;
 };
 
 //? Delete Category

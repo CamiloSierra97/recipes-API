@@ -19,7 +19,7 @@ const Ingredients = db.define(
     urlImg: {
       type: DataTypes.TEXT,
       validate: {
-        isUrl: true,
+        // isUrl: true,
       },
       field: "url_img",
     },

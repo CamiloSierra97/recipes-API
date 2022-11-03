@@ -12,7 +12,7 @@ const getAllCategories = (req, res) => {
 };
 
 const getCategoryById = (req, res) => {
-  const id = req.paramas.id;
+  const id = req.params.category_id;
   categoryControllers
     .getCategoryById(id)
     .then((data) => {
@@ -28,7 +28,7 @@ const getCategoryById = (req, res) => {
 };
 
 const createCategory = (req, res) => {
-  const name = req.body;
+  const { name } = req.body;
   if (name) {
     categoryControllers
       .createCategory(name)
@@ -36,7 +36,7 @@ const createCategory = (req, res) => {
         res.status(201).json(data);
       })
       .catch((err) => {
-        res.status(400).json({ message: err.message });
+        res.status(400).json({ err });
       });
   } else {
     res.status(404).json({

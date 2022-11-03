@@ -18,7 +18,7 @@ router
   );
 
 router
-  .route("/:id")
+  .route("/:category_id")
   .get(categoriesServices.getCategoryById)
   .delete(
     passport.authenticate("jwt", { session: false }),

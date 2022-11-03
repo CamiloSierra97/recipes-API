@@ -24,7 +24,7 @@ const Recipes = db.define("recipes", {
   urlImg: {
     type: DataTypes.TEXT,
     validate: {
-      isUrl: true,
+      // isUrl: true,
     },
     field: "url_img",
   },
