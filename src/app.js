@@ -14,6 +14,7 @@ const categoriesRouter = require("./categories/categories.router");
 const recipesRouter = require("./recipes/recipes.router");
 const ingredientsRouter = require("./ingredients/ingredients.router");
 const instructionsRouter = require("./instructions/instructions.router");
+const typesRouter = require("./types/types.router");
 
 //? Initial Configs
 const app = express();
@@ -55,6 +56,7 @@ app.use("/api/v1/categories", categoriesRouter);
 app.use("/api/v1/recipes", recipesRouter);
 app.use("/api/v1/ingredients", ingredientsRouter);
 app.use("/api/v1/instructions", instructionsRouter);
+app.use("/api/v1/types", typesRouter);
 
 app.listen(config.port, () => {
   console.log(`Server started at port ${config.port}`);
