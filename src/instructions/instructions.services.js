@@ -12,7 +12,7 @@ const getAllInstructions = (req, res) => {
 };
 
 const getInstructionById = (req, res) => {
-  const id = re.params.instruction_id;
+  const id = req.params.instruction_id;
   instructionControllers
     .getInstructionById(id)
     .then((data) => {

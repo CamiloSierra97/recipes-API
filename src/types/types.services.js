@@ -19,7 +19,7 @@ const getTypeById = (req, res) => {
       if (data) {
         res.status(200).json(data);
       } else {
-        res.status(404).json("Invalid ID");
+        res.status(404).json({ message: "Invalid ID" });
       }
     })
     .catch((err) => {
@@ -52,14 +52,14 @@ const patchType = (req, res) => {
   const id = req.params.type_id;
   const { name } = req.body;
   typesControllers
-    .updateType(id, name)
+    .updateType(id, { name })
     .then((data) => {
       if (data[0]) {
         res
           .status(200)
           .json({ message: `Ingstruction with ID ${id} edited succesfully!` });
       } else {
-        res.status(404).json({ message: "Invaled ID" });
+        res.status(404).json({ message: "Invalid ID" });
       }
     })
     .catch((err) => {
@@ -68,7 +68,9 @@ const patchType = (req, res) => {
 };
 
 const deleteType = (req, res) => {
-  const id = req.params.type_id
+  const id = req.params.type_id;
+  typesControllers
+    .deleteType(id)
     .then((data) => {
       if (data) {
         res.status(204).json();

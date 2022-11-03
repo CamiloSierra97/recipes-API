@@ -24,7 +24,7 @@ const createInstruction = async (data) => {
     id: uuid.v4(),
     description: data.description,
     step: data.step,
-    recipeIp: data.recipeId,
+    recipeId: data.recipeId,
   });
   return newInstruction;
 };
