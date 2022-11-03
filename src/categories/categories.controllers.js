@@ -1,3 +1,4 @@
+//? Dependencies
 const Categories = require("../models/categories.models");
 
 //? See all categories
@@ -21,7 +22,7 @@ const createCategory = async (name) => {
   const data = await Categories.create({
     name,
   });
-  return date;
+  return data;
 };
 
 //? Delete Category

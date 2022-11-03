@@ -1,5 +1,6 @@
 //? Dependencies
 const express = require("express");
+const cors = require("cors");
 const db = require("./utils/database");
 
 //? Files
@@ -14,6 +15,7 @@ const categoriesRouter = require("./categories/categories.router");
 //? Initial Configs
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 db.authenticate()
