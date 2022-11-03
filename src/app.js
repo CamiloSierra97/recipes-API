@@ -11,6 +11,7 @@ const initModels = require("./models/initModels");
 const usersRouter = require("./users/users.router");
 const authRouter = require("./auth/auth.router");
 const categoriesRouter = require("./categories/categories.router");
+const recipesRouter = require("./recipes/recipes.router");
 
 //? Initial Configs
 const app = express();
@@ -49,6 +50,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/categories", categoriesRouter);
+app.use("/api/v1/recipes", recipesRouter);
 
 app.listen(config.port, () => {
   console.log(`Server started at port ${config.port}`);
