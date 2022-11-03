@@ -6,7 +6,7 @@ const ingredientServices = require("./ingredients.services");
 const passport = require("passport");
 require("../middlewares/auth.middleware")(passport);
 
-//? /api/v1/recipes
+//? /api/v1/ingredients
 router
   .route("/")
   .get(ingredientServices.getAllIngredients)
@@ -27,4 +27,4 @@ router
     ingredientServices.deleteIngredient
   );
 
-module.export = router;
+module.exports = router;

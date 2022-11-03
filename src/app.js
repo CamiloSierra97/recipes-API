@@ -52,7 +52,7 @@ app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/categories", categoriesRouter);
 app.use("/api/v1/recipes", recipesRouter);
-app.use("/api/v1/recipes", ingredientsRouter);
+app.use("/api/v1/ingredients", ingredientsRouter);
 
 app.listen(config.port, () => {
   console.log(`Server started at port ${config.port}`);

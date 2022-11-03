@@ -31,12 +31,12 @@ const createIngredient = async (data) => {
 
 //? Modify Ingredient
 const updateIngredient = async (id, data) => {
-  const data = await Ingredients.update(id, {
+  const result = await Ingredients.update(id, {
     where: {
       id,
     },
   });
-  return data;
+  return result;
 };
 
 //? Delete Ingredient
