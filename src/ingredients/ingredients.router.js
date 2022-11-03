@@ -1,32 +1,30 @@
 //? Dependencies
 const router = require("express").Router();
-const recipeServices = require("./recipes.services");
+const ingredientServices = require("./ingredients.services");
 
 //? Protect routes
 const passport = require("passport");
 require("../middlewares/auth.middleware")(passport);
-const adminValidate = require("../middlewares/role.middleware");
 
 //? /api/v1/recipes
 router
   .route("/")
-  .get(recipeServices.getAllRecipes)
+  .get(ingredientServices.getAllIngredients)
   .post(
     passport.authenticate("jwt", { session: false }),
-    recipeServices.createRecipe
+    ingredientServices.createIngredient
   );
 
 router
-  .route("/:recipe_id")
-  .get(recipeServices.getRecipeById)
+  .route("/:ingredient_id")
+  .get(ingredientServices.getIngredientById)
   .patch(
     passport.authenticate("jwt", { session: false }),
-    recipeServices.patchRecipe
+    ingredientServices.patchIngredient
   )
   .delete(
     passport.authenticate("jwt", { session: false }),
-    adminValidate,
-    recipeServices.deleteRecipe
+    ingredientServices.deleteIngredient
   );
 
-module.exports = router;
+module.export = router;

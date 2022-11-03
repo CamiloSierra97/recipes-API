@@ -36,6 +36,14 @@ const Recipes = db.define("recipes", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  origin: {
+    type: DataTypes.STRING,
+  },
+  likes: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 0,
+  },
   userId: {
     type: DataTypes.UUID,
     allowNull: false,
@@ -53,14 +61,6 @@ const Recipes = db.define("recipes", {
       key: "id",
       model: Categories,
     },
-  },
-  origin: {
-    type: DataTypes.STRING,
-  },
-  likes: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    defaultValue: 0,
   },
 });
 

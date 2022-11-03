@@ -64,7 +64,7 @@ const createRecipe = (req, res) => {
 };
 
 const patchRecipe = (req, res) => {
-  const id = req.params.id;
+  const id = req.params.recipe_id;
   const { title, description, urlImg, time, portions, categoryId, origin } =
     req.body;
   recipeControllers
@@ -92,7 +92,7 @@ const patchRecipe = (req, res) => {
 };
 
 const deleteRecipe = (req, res) => {
-  const id = req.params.id;
+  const id = req.params.recipe_id;
   recipeControllers.deleteRecipe(id).then((data) => {
     if (data) {
       res.status(204).json();

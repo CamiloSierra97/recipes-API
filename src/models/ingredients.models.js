@@ -16,6 +16,13 @@ const Ingredients = db.define(
       allowNull: false,
       unique: true,
     },
+    urlImg: {
+      type: DataTypes.TEXT,
+      validate: {
+        isUrl: true,
+      },
+      field: "url_img",
+    },
     typeId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -24,13 +31,6 @@ const Ingredients = db.define(
         key: "id",
         model: Types,
       },
-    },
-    urlImg: {
-      type: DataTypes.TEXT,
-      validate: {
-        isUrl: true,
-      },
-      field: "url_img",
     },
   },
   {

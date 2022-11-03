@@ -27,10 +27,10 @@ const createRecipe = async (data) => {
     urlImg: data.urlImg,
     time: data.time,
     portions: data.portions,
-    userId: data.userId,
-    categoryId: data.categoryId,
     origin: data.origin,
     likes: data.likes,
+    userId: data.userId,
+    categoryId: data.categoryId,
   });
   return newRecipe;
 };
