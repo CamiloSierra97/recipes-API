@@ -31,7 +31,7 @@ const createIngredient = async (data) => {
 
 //? Modify Ingredient
 const updateIngredient = async (id, data) => {
-  const result = await Ingredients.update(id, {
+  const result = await Ingredients.update(data, {
     where: {
       id,
     },
