@@ -12,20 +12,31 @@ const UsersRecipes = require("../models/users_recipes.models");
 //? See all Recipes
 const getAllRecipes = async () => {
   const data = await Recipes.findAll({
+    attributes: {
+      exclude: ["userId", "categoryId"],
+    },
     include: [
       {
         model: Categories,
       },
       {
         model: Users,
+        attributes: ["id", "firstName", "lastName"],
       },
       {
         model: Instructions,
+        attributes: ["step", "description"],
       },
       {
         model: RecipesIngredients,
+        attributes: {
+          exclude: ["recipeId", "ingredientId"],
+        },
         include: {
           model: Ingredients,
+          attributes: {
+            exclude: ["typeId"],
+          },
           include: {
             model: Types,
           },
