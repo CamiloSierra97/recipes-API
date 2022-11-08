@@ -56,6 +56,40 @@ const getRecipeById = async (id) => {
     where: {
       id,
     },
+    attributes: {
+      exclude: ["userId", "categoryId"],
+    },
+    include: [
+      {
+        model: Categories,
+      },
+      {
+        model: Users,
+        attributes: ["id", "firstName", "lastName"],
+      },
+      {
+        model: Instructions,
+        attributes: ["step", "description"],
+      },
+      {
+        model: RecipesIngredients,
+        attributes: {
+          exclude: ["recipeId", "ingredientId"],
+        },
+        include: {
+          model: Ingredients,
+          attributes: {
+            exclude: ["typeId"],
+          },
+          include: {
+            model: Types,
+          },
+        },
+      },
+      {
+        model: UsersRecipes,
+      },
+    ],
   });
   return data;
 };
