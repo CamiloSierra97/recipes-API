@@ -21,7 +21,7 @@ const initModels = () => {
   Users.hasMany(UsersRecipes);
   Users.hasMany(UsersIngredients);
 
-  //? Ingredients Realtions
+  //? Ingredients relations
   Ingredients.belongsTo(Types);
   Ingredients.hasMany(RecipesIngredients);
   Ingredients.hasMany(UsersIngredients);
