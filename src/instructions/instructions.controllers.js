@@ -1,10 +1,21 @@
 //? Dependencies
-const Instructions = require("../models/instructions.models");
 const uuid = require("uuid");
+const Instructions = require("../models/instructions.models");
+const Recipes = require("../models/recipes.models");
 
 //? See all Instructions
 const getAllIntructions = async () => {
-  const data = await Instructions.findAll();
+  const data = await Instructions.findAll({
+    attributes: ["description", "step"],
+    include: [
+      {
+        model: Recipes,
+        attributes: {
+          exclude: ["userId"],
+        },
+      },
+    ],
+  });
   return data;
 };
 
@@ -14,6 +25,15 @@ const getInstructionById = async (id) => {
     where: {
       id,
     },
+    attributes: ["description", "step"],
+    include: [
+      {
+        model: Recipes,
+        attributes: {
+          exclude: ["userId"],
+        },
+      },
+    ],
   });
   return data;
 };

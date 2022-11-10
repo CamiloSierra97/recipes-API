@@ -1,9 +1,19 @@
 //? Dependencies
 const Categories = require("../models/categories.models");
+const Recipes = require("../models/recipes.models");
 
 //? See all categories
 const getAllCategories = async () => {
-  const data = await Categories.findAll();
+  const data = await Categories.findAll({
+    include: [
+      {
+        model: Recipes,
+        attributes: {
+          exclude: ["userId", "categoryId"],
+        },
+      },
+    ],
+  });
   return data;
 };
 
@@ -13,6 +23,14 @@ const getCategoryById = async (id) => {
     where: {
       id,
     },
+    include: [
+      {
+        model: Recipes,
+        attributes: {
+          exclude: ["userId", "categoryId"],
+        },
+      },
+    ],
   });
   return data;
 };

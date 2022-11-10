@@ -1,9 +1,19 @@
 //? Dependencies
 const Types = require("../models/types.models");
+const Ingredients = require("../models/ingredients.models");
 
 //? See all Types
 const getAllTypes = async () => {
-  const data = await Types.findAll();
+  const data = await Types.findAll({
+    include: [
+      {
+        model: Ingredients,
+        attributes: {
+          exclude: ["typeId"],
+        },
+      },
+    ],
+  });
   return data;
 };
 
@@ -13,6 +23,14 @@ const getTypeById = async (id) => {
     where: {
       id,
     },
+    include: [
+      {
+        model: Ingredients,
+        attributes: {
+          exclude: ["typeId"],
+        },
+      },
+    ],
   });
   return data;
 };
