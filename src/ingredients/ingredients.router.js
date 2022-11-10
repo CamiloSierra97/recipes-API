@@ -27,4 +27,10 @@ router
     ingredientServices.deleteIngredient
   );
 
+router.post(
+  "/:ingredient_id/add_to_user",
+  passport.authenticate("jwt", { session: false }),
+  ingredientServices.postIngredienteToUser
+);
+
 module.exports = router;
