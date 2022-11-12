@@ -93,7 +93,7 @@ const postIngredienteToUser = (req, res) => {
     ingredientControllers
       .addIngredientToUser({ userId, ingredientId, amount })
       .then((data) => {
-        res.tatus(201).json(data);
+        res.status(201).json(data);
       })
       .catch((err) => {
         res.status(400).json({ message: err.message });
@@ -108,6 +108,22 @@ const postIngredienteToUser = (req, res) => {
   }
 };
 
+// const deleteUsersIngredient = (req, res) => {
+//   const id = req.params.ingredient_id;
+//   ingredientControllers
+//     .deleteUsersIngredient(id)
+//     .then((data) => {
+//       if (data) {
+//         res.status(204).json();
+//       } else {
+//         res.status(404).json({ message: "Invalid ID" });
+//       }
+//     })
+//     .catch((err) => {
+//       res.status(400).json({ message: err.message });
+//     });
+// };
+
 module.exports = {
   getAllIngredients,
   getIngredientById,
@@ -115,4 +131,6 @@ module.exports = {
   patchIngredient,
   deleteIngredient,
   postIngredienteToUser,
+  deleteIngredient,
+  // deleteUsersIngredient,
 };

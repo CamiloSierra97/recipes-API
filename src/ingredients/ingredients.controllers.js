@@ -50,6 +50,7 @@ const deleteIngredient = async (id) => {
   return data;
 };
 
+//? Create User Ingredient
 const addIngredientToUser = async (data) => {
   const newIngredient = await UsersIngredients.create({
     id: uuid.v4(),
@@ -60,6 +61,16 @@ const addIngredientToUser = async (data) => {
   return newIngredient;
 };
 
+// const deleteUsersIngredient = async (data) => {
+//   const response = await UsersIngredients.destroy({
+//     where: {
+//       id: data.ingredientId,
+//       userId: data.userId,
+//     },
+//   });
+//   return response;
+// };
+
 module.exports = {
   getAllIngredients,
   getIngredientById,
@@ -67,4 +78,5 @@ module.exports = {
   updateIngredient,
   deleteIngredient,
   addIngredientToUser,
+  // deleteUsersIngredient,
 };
