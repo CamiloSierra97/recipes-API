@@ -164,10 +164,6 @@ const getUserRecipes = async (userId) => {
   return data;
 };
 
-getUserRecipes("33c57777-59fb-4cad-bac0-8c3f5bcc027a")
-  .then((data) => console.log(data))
-  .catch((data) => console.log(data));
-
 module.exports = {
   getAllRecipes,
   getRecipeById,
