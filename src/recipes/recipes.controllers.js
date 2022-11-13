@@ -96,10 +96,6 @@ const getRecipeById = async (id) => {
   return data;
 };
 
-getRecipeById("1857e885-78ac-48b4-86ab-693b7d85f5bc")
-  .then((data) => console.log(data))
-  .catch((data) => console.log(data));
-
 //? Create Recipe
 const createRecipe = async (data) => {
   const newRecipe = await Recipes.create({
