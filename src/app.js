@@ -52,7 +52,7 @@ app.get("/", (req, res) => {
 });
 
 //? Verbs
-app.use(swaggerUi.serve, function (req, res) {
+app.use("/api/v1/doc", swaggerUi.serve, function (req, res) {
   swaggerDocument.host = req.get("host"); //? Replace hardcoded host information in swagger file
   swaggerDocument.schemes = [req.protocol]; //? Replace hardcoded protocol information in Swagger file
   swaggerUi.setup(swaggerDocument)(req, res);
