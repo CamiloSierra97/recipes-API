@@ -3,7 +3,7 @@ const config = require("../config");
 
 //? Environment variables
 const db = new Sequelize({
-  dialect: "production",
+  dialect: "postgres",
   host: config.db.host,
   username: config.db.username,
   password: config.db.password,
