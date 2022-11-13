@@ -108,21 +108,21 @@ const postIngredienteToUser = (req, res) => {
   }
 };
 
-// const deleteUsersIngredient = (req, res) => {
-//   const id = req.params.ingredient_id;
-//   ingredientControllers
-//     .deleteUsersIngredient(id)
-//     .then((data) => {
-//       if (data) {
-//         res.status(204).json();
-//       } else {
-//         res.status(404).json({ message: "Invalid ID" });
-//       }
-//     })
-//     .catch((err) => {
-//       res.status(400).json({ message: err.message });
-//     });
-// };
+const deleteUsersIngredient = (req, res) => {
+  const id = req.params.ingredient_id;
+  ingredientControllers
+    .deleteUsersIngredient(id)
+    .then((data) => {
+      if (data) {
+        res.status(204).json();
+      } else {
+        res.status(404).json({ message: "Invalid ID" });
+      }
+    })
+    .catch((err) => {
+      res.status(400).json({ message: err.message });
+    });
+};
 
 module.exports = {
   getAllIngredients,
@@ -132,5 +132,5 @@ module.exports = {
   deleteIngredient,
   postIngredienteToUser,
   deleteIngredient,
-  // deleteUsersIngredient,
+  deleteUsersIngredient,
 };

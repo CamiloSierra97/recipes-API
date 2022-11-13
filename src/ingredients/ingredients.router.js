@@ -33,10 +33,10 @@ router.post(
   ingredientServices.postIngredienteToUser
 );
 
-// router.delete(
-//   "/:ingredient_id/delete_ingredient",
-//   passport.authenticate("jwt", { session: false }),
-//   ingredientServices.deleteUsersIngredient
-// );
+router.delete(
+  "/:ingredient_id/delete_ingredient",
+  passport.authenticate("jwt", { session: false }),
+  ingredientServices.deleteUsersIngredient
+);
 
 module.exports = router;

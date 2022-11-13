@@ -1,6 +1,7 @@
 //? Dependencies
 const router = require("express").Router();
 const userServices = require("./users.services");
+const { getUserRecipes } = require("../recipes/recipes.services");
 
 //? Protect routes
 const passport = require("passport");
@@ -41,5 +42,11 @@ router
     adminValidate,
     userServices.deleteUser
   );
+
+router.get(
+  "/me/my_recipes",
+  passport.authenticate("jwt", { session: false }),
+  getUserRecipes
+);
 
 module.exports = router;

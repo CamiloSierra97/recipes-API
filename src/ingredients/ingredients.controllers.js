@@ -61,15 +61,15 @@ const addIngredientToUser = async (data) => {
   return newIngredient;
 };
 
-// const deleteUsersIngredient = async (data) => {
-//   const response = await UsersIngredients.destroy({
-//     where: {
-//       id: data.ingredientId,
-//       userId: data.userId,
-//     },
-//   });
-//   return response;
-// };
+const deleteUsersIngredient = async (data) => {
+  const response = await UsersIngredients.destroy({
+    where: {
+      id: data.ingredientId,
+      userId: data.userId,
+    },
+  });
+  return response;
+};
 
 module.exports = {
   getAllIngredients,
@@ -78,5 +78,5 @@ module.exports = {
   updateIngredient,
   deleteIngredient,
   addIngredientToUser,
-  // deleteUsersIngredient,
+  deleteUsersIngredient,
 };
