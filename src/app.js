@@ -5,7 +5,7 @@ const swaggerUi = require("swagger-ui-express");
 const db = require("./utils/database");
 
 //? Files
-const swaggerDoc = require("../swagger.json");
+const swaggerDocument = require("../swagger.json");
 const config = require("./config");
 const initModels = require("./models/initModels");
 
@@ -52,7 +52,11 @@ app.get("/", (req, res) => {
 });
 
 //? Verbs
-app.use("/api/doc", swaggerUi.serve, swaggerUi.serve(swaggerDoc));
+app.use(swaggerUi.serve, function (req, res) {
+  swaggerDocument.host = req.get("host"); // Replace hardcoded host information in swagger file
+  swaggerDocument.schemes = [req.protocol]; // Replace hardcoded protocol information in Swagger file
+  swaggerUi.setup(swaggerDocument)(req, res);
+});
 app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/categories", categoriesRouter);
