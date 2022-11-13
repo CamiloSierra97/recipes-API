@@ -1,9 +1,11 @@
 //? Dependencies
 const express = require("express");
 const cors = require("cors");
+const swaggerUi = require("swagger-ui-express");
 const db = require("./utils/database");
 
 //? Files
+const swaggerDoc = require("../swagger.json");
 const config = require("./config");
 const initModels = require("./models/initModels");
 
@@ -50,6 +52,7 @@ app.get("/", (req, res) => {
 });
 
 //? Verbs
+app.use("/api/doc", swaggerUi.serve, swaggerUi.serve(swaggerDoc));
 app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/categories", categoriesRouter);
