@@ -86,10 +86,11 @@ const deleteIngredient = (req, res) => {
 };
 
 const postIngredienteToUser = (req, res) => {
-  const userId = req.user.id;
   const { amount } = req.body;
+  const userId = req.user.id;
   const ingredientId = req.params.ingredient_id;
   if (amount) {
+    //? Controller execution
     ingredientControllers
       .addIngredientToUser({ userId, ingredientId, amount })
       .then((data) => {
@@ -99,6 +100,7 @@ const postIngredienteToUser = (req, res) => {
         res.status(400).json({ message: err.message });
       });
   } else {
+    //? Error when data is missing
     res.status(400).json({
       message: "Missing data",
       fields: {
